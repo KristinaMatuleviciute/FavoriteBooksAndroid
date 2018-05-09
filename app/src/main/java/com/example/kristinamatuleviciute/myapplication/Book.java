@@ -6,6 +6,8 @@ public class Book {
     private String bookName;
     private int bookRating;
 
+    public Book() {}
+
     public Book(String bookId, String bookName, int bookRating) {
         this.bookId = bookId;
         this.bookName = bookName;
@@ -20,7 +22,7 @@ public class Book {
         return bookName;
     }
 
-    public int getBookRate() {
+    public int getBookRating() {
         return bookRating;
     }
 }

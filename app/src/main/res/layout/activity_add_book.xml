@@ -12,23 +12,9 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBookName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextBookName" />
-
-    <EditText
-        android:id="@+id/editTextBookName"
-        android:layout_width="348dp"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="enter track name "
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="25dp" />
 
     <Button
         android:id="@+id/buttonAddBook"

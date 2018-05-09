@@ -13,8 +13,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddBookActivity extends AppCompatActivity {
 
@@ -27,6 +33,8 @@ public class AddBookActivity extends AppCompatActivity {
     ListView listViewBooks;
 
     DatabaseReference databaseBooks;
+    List<Book> books;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +42,7 @@ public class AddBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_book);
 
         textViewArtistName = (TextView) findViewById(R.id.textViewArtistName);
-        editTextBookName = (EditText) findViewById(R.id.editTextBookName);
+        editTextBookName = (EditText) findViewById(R.id.editTextName);
         seekBarRating =(RatingBar) findViewById(R.id.seekBarRating);
 
         buttonAddBook= (Button) findViewById(R.id.buttonAddBook);
@@ -42,6 +50,8 @@ public class AddBookActivity extends AppCompatActivity {
         listViewBooks = (ListView) findViewById(R.id.listViewBooks);
 
         Intent intent = getIntent();
+
+        books = new ArrayList<>();
 
         String id =  intent.getStringExtra(MainActivity.AUTHOR_ID);
         String name = intent.getStringExtra(MainActivity.AUTHOR_NAME);
@@ -54,6 +64,30 @@ public class AddBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveBook();
+
+            }
+        });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        databaseBooks.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                books.clear();
+
+                for(DataSnapshot bookSnapshot : dataSnapshot.getChildren()){
+                    Book book = bookSnapshot.getValue(Book.class);
+                    books.add(book);
+                }
+
+                BookList bookListAdapter = new BookList(AddBookActivity.this, books);
+                listViewBooks.setAdapter(bookListAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
