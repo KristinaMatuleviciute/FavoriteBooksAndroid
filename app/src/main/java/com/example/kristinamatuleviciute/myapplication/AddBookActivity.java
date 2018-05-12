@@ -42,7 +42,7 @@ public class AddBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_book);
 
         textViewArtistName = (TextView) findViewById(R.id.textViewArtistName);
-        editTextBookName = (EditText) findViewById(R.id.editTextName);
+        editTextBookName = (EditText) findViewById(R.id.editTextBook);
         seekBarRating =(RatingBar) findViewById(R.id.seekBarRating);
 
         buttonAddBook= (Button) findViewById(R.id.buttonAddBook);

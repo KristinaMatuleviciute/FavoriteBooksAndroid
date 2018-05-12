@@ -17,7 +17,6 @@
         android:ems="10"
         android:hint="enter name "
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

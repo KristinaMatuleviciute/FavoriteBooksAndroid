@@ -1,52 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AddBookActivity">
+
 
     <TextView
         android:id="@+id/textViewArtistName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="25dp" />
+         />
+
+    <EditText
+        android:id="@+id/editTextBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="enter book name " />
+
+    <RatingBar
+        android:id="@+id/seekBarRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="5"/>
 
     <Button
         android:id="@+id/buttonAddBook"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
         android:text="Add Book"
         app:layout_constraintBottom_toTopOf="@+id/listViewBooks"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listViewBooks"
-        android:layout_width="wrap_content"
-        android:layout_height="263dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RatingBar
-        android:id="@+id/seekBarRating"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAddBook"
-        app:layout_constraintStart_toStartOf="parent" />
+         />
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
