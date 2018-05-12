@@ -2,7 +2,7 @@
     <string name="app_name">Favorite Books</string>
 
     <array name="genres">
-        <item>Fanasy</item>
+        <item>Fantasy</item>
         <item>Drama</item>
         <item>Romance</item>
         <item>Health</item>
